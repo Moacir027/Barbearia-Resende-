@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#14110f" />
+  <title>Barbearia Resende — Agendamento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topo">
+      <div class="logo">✂</div>
+      <div>
+        <h1>Barbearia Resende</h1>
+        <p>Estilo e tradição desde sempre</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Tela: Agendar -->
+      <section id="tela-agendar" class="tela ativa">
+        <h2 class="titulo">1. Escolha o serviço</h2>
+        <div id="servicos" class="lista"></div>
+
+        <h2 class="titulo">2. Escolha o barbeiro</h2>
+        <div id="barbeiros" class="chips"></div>
+
+        <h2 class="titulo">3. Escolha o dia</h2>
+        <div id="dias" class="dias"></div>
+
+        <h2 class="titulo">4. Escolha o horário</h2>
+        <div id="horarios" class="horarios"></div>
+
+        <h2 class="titulo">5. Seus dados</h2>
+        <input id="nome" type="text" placeholder="Seu nome" autocomplete="name" />
+        <input id="telefone" type="tel" placeholder="WhatsApp (ex: 24 99999-9999)" autocomplete="tel" />
+
+        <div class="resumo" id="resumo">Selecione as opções acima</div>
+        <button id="btn-confirmar" class="btn">Confirmar agendamento</button>
+      </section>
+
+      <!-- Tela: Meus horários -->
+      <section id="tela-meus" class="tela">
+        <h2 class="titulo">Meus agendamentos</h2>
+        <div id="lista-agendamentos"></div>
+      </section>
+
+      <!-- Tela: Sobre -->
+      <section id="tela-sobre" class="tela">
+        <h2 class="titulo">Sobre nós</h2>
+        <div class="card">
+          <p><strong>Endereço:</strong> Rua Principal, 123 — Resende/RJ</p>
+          <p><strong>Funcionamento:</strong> Seg a Sáb, 09h às 19h</p>
+          <p><strong>Telefone:</strong> (24) 99999-9999</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="menu">
+      <button data-tela="tela-agendar" class="ativo">📅<span>Agendar</span></button>
+      <button data-tela="tela-meus">📋<span>Meus horários</span></button>
+      <button data-tela="tela-sobre">💈<span>Sobre</span></button>
+    </nav>
+
+    <div id="toast" class="toast"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

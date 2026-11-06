@@ -1,0 +1,88 @@
+:root {
+  --fundo: #14110f;
+  --card: #1f1a17;
+  --borda: #3a312b;
+  --texto: #f3ece4;
+  --suave: #a89a8c;
+  --ouro: #d4a24c;
+  --ouro-escuro: #a67a2e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Barlow", sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  display: flex;
+  justify-content: center;
+}
+.app { width: 100%; max-width: 480px; min-height: 100vh; padding-bottom: 90px; }
+.topo {
+  display: flex; align-items: center; gap: 14px;
+  padding: 24px 20px;
+  background: linear-gradient(160deg, #2a211b, var(--fundo));
+  border-bottom: 1px solid var(--borda);
+}
+.logo {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 26px;
+  background: var(--ouro); color: var(--fundo);
+}
+h1 { font-family: "Bebas Neue", sans-serif; font-size: 32px; letter-spacing: 1px; color: var(--ouro); line-height: 1; }
+.topo p { color: var(--suave); font-size: 14px; }
+main { padding: 8px 20px; }
+.tela { display: none; animation: entrar .3s ease; }
+.tela.ativa { display: block; }
+@keyframes entrar { from { opacity: 0; transform: translateY(8px); } }
+.titulo { font-family: "Bebas Neue", sans-serif; font-size: 22px; letter-spacing: 1px; margin: 22px 0 10px; }
+.lista { display: grid; gap: 10px; }
+.opcao, .card {
+  background: var(--card); border: 1px solid var(--borda);
+  border-radius: 14px; padding: 14px 16px;
+}
+.opcao { display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: .2s; }
+.opcao small { color: var(--suave); display: block; }
+.opcao .preco { color: var(--ouro); font-weight: 600; }
+.selecionado { border-color: var(--ouro) !important; background: #2b2219 !important; }
+.chips, .dias { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.chip, .dia, .hora {
+  background: var(--card); border: 1px solid var(--borda); color: var(--texto);
+  border-radius: 12px; padding: 10px 14px; cursor: pointer; white-space: nowrap; font: inherit;
+}
+.dia { text-align: center; min-width: 62px; }
+.dia small { display: block; color: var(--suave); font-size: 12px; text-transform: uppercase; }
+.dia strong { font-size: 20px; }
+.horarios { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.hora:disabled { opacity: .3; text-decoration: line-through; cursor: not-allowed; }
+input {
+  width: 100%; padding: 14px; margin-bottom: 10px; font: inherit;
+  background: var(--card); color: var(--texto);
+  border: 1px solid var(--borda); border-radius: 12px; outline: none;
+}
+input:focus { border-color: var(--ouro); }
+.resumo { color: var(--suave); margin: 14px 0; font-size: 14px; line-height: 1.5; }
+.btn {
+  width: 100%; padding: 16px; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(135deg, var(--ouro), var(--ouro-escuro));
+  color: var(--fundo); font-family: "Bebas Neue", sans-serif; font-size: 22px; letter-spacing: 1px;
+}
+.btn-sec { background: transparent; border: 1px solid #b4483a; color: #e07a6c; padding: 8px 12px; border-radius: 10px; cursor: pointer; margin-top: 10px; font: inherit; }
+.card { margin-bottom: 10px; line-height: 1.7; }
+.vazio { color: var(--suave); text-align: center; padding: 40px 0; }
+.menu {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px; display: flex;
+  background: #0f0c0a; border-top: 1px solid var(--borda);
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+}
+.menu button {
+  flex: 1; background: none; border: none; color: var(--suave); font-size: 20px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.menu span { font-size: 12px; font-family: inherit; }
+.menu .ativo { color: var(--ouro); }
+.toast {
+  position: fixed; top: 20px; left: 50%; transform: translate(-50%, -150%);
+  background: var(--ouro); color: var(--fundo); padding: 12px 20px; border-radius: 12px;
+  font-weight: 600; transition: .3s; z-index: 10; max-width: 90%;
+}
+.toast.mostrar { transform: translate(-50%, 0); }
